@@ -23,6 +23,9 @@ header {
     text-align: center;
 }
 
+/* =========================
+   Painel principal (Peso + Formulário + Logo)
+   ========================= */
 .main-panel {
     display: flex;
     justify-content: space-between;
@@ -39,11 +42,6 @@ header {
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-}
-
-.peso-display .codigo {
-    font-size: 18px;
-    margin-bottom: 5px;
 }
 
 .peso-display .peso {
@@ -75,7 +73,7 @@ header {
     margin-bottom: 4px;
 }
 
-.form-group input, .form-group select {
+.form-group input {
     width: 100%;
     padding: 5px;
 }
@@ -87,6 +85,7 @@ header {
 .buttons button {
     padding: 6px 12px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .confirmar {
@@ -112,31 +111,62 @@ header {
     flex: 1;
 }
 
+/* =========================
+   Abas
+   ========================= */
 .tabs {
     display: flex;
     background-color: #e6e6e6;
     padding: 5px;
 }
 
-.tabs button {
+.tabs label {
     background-color: white;
     border: 1px solid #ccc;
     padding: 5px 10px;
     margin-right: 5px;
     cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.tabs label:hover {
+    background-color: #ddd;
+}
+
+input[name="tab"] {
+    display: none;
 }
 
 .tab-content {
-    display: flex;
-    justify-content: space-between;
+    display: none;
     padding: 10px;
+    border-top: 1px solid #ccc;
+    gap: 20px;
 }
 
-.tab-content .left {
+input#tab1:checked ~ .content #content1,
+input#tab2:checked ~ .content #content2,
+input#tab3:checked ~ .content #content3,
+input#tab4:checked ~ .content #content4 {
+    display: flex;
+}
+
+input#tab1:checked ~ .tabs label[for="tab1"],
+input#tab2:checked ~ .tabs label[for="tab2"],
+input#tab3:checked ~ .tabs label[for="tab3"],
+input#tab4:checked ~ .tabs label[for="tab4"] {
+    background-color: #ccc;
+}
+
+/* =========================
+   Conteúdo das abas
+   ========================= */
+.left {
     flex: 2;
 }
 
-.tab-content .right {
+.right {
     flex: 1;
     padding-left: 20px;
 }
@@ -154,9 +184,18 @@ header {
     height: 150px;
 }
 
+input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+/* =========================
+   Rodapé
+   ========================= */
 footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     background-color: #e6e6e6;
     padding: 5px 10px;
     font-size: 12px;
@@ -173,4 +212,29 @@ footer button {
     color: white;
     border: none;
     padding: 3px 8px;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: #cc0000;
+}
+
+.btn-sair-fixo {
+    position: fixed;
+    right: 90%;
+    top: 60%;
+    transform: translateX(-50%);
+    background-color: #a60000;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.btn-sair-fixo:hover {
+    background-color: #7d0000;
 }

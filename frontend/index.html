@@ -9,17 +9,13 @@
 <body>
     <div class="container">
 
-        <!-- Cabeçalho -->
         <header>
             <h1>Identifique o veículo</h1>
         </header>
 
-        <!-- Painel principal -->
         <div class="main-panel">
-            <!-- Seção Peso -->
             <div class="peso-section">
                 <div class="peso-display">
-                    <div class="codigo">[F2] - 001</div>
                     <div class="peso">
                         <span>0</span> <span class="kg">kg</span>
                     </div>
@@ -27,7 +23,7 @@
                 </div>
             </div>
 
-            <!-- Seção Formulário -->
+            <!-- Formulário -->
             <div class="form-section">
                 <div class="form-group">
                     <label>Placa da carreta/vagão</label>
@@ -41,70 +37,104 @@
                     <label>Identificação</label>
                     <input type="text">
                 </div>
-                <div class="form-group">
-                    <label>Fluxo</label>
-                    <select>
-                        <option>Selecionar</option>
-                    </select>
-                </div>
+
                 <div class="buttons">
                     <button class="confirmar">✔ Confirmar</button>
                     <button class="cancelar">✘ Cancelar</button>
                 </div>
             </div>
 
-            <!-- Logotipo -->
             <div class="logo">
-                guardian
+                Sistema de Pesagem
             </div>
         </div>
 
         <!-- Abas -->
+        <input type="radio" name="tab" id="tab1" checked>
+        <input type="radio" name="tab" id="tab2">
+        <input type="radio" name="tab" id="tab3">
+        <input type="radio" name="tab" id="tab4">
+
         <nav class="tabs">
-            <button>Tipo veículo - [F1]</button>
-            <button>Cadastros - [F2]</button>
-            <button>Motorista - [F3]</button>
-            <button>Campos adicionais - [F4]</button>
-            <button>Embalagens - [F5]</button>
-            <button>Observação - [F6]</button>
-            <button>Documento - [F7]</button>
-            <button>Arquivos - [F8]</button>
-            <button>Tara - [F9]</button>
+            <label for="tab1">Tipo veículo [F1]</label>
+            <label for="tab2">Cadastros [F2]</label>
+            <label for="tab3">Motorista [F3]</label>
+            <label for="tab4">Campos adicionais [F4]</label>
         </nav>
 
-        <!-- Conteúdo da aba -->
-        <div class="tab-content">
-            <div class="left">
-                <label>Tipo veículo</label>
-                <input type="text" placeholder="Descrição do tipo de veículo">
-                <div class="info-grid">
-                    <div><label>Peso bruto (kg)</label><input type="number" value="0.00"></div>
-                    <div><label>Qtd. Eixos</label><input type="number" value="0"></div>
-                    <div><label>Qtd. Grupos</label><input type="number" value="0"></div>
-                    <div><label>Tara técnica (kg)</label><input type="number" value="0.00"></div>
-                </div>
-                <div>
-                    <input type="checkbox" id="peso-zero">
-                    <label for="peso-zero">Permite peso líquido zero</label>
+        <!-- Conteúdo das abas -->
+        <div class="content">
+
+            <!-- Aba Tipo Veículo -->
+            <div class="tab-content" id="content1">
+                <div class="left">
+                    <div class="form-group">
+                        <label>Tipo veículo</label>
+                        <input type="text" placeholder="Tipo do veículo">
+                    </div>
+                    <div class="form-group">
+                        <label>Descrição do tipo de veículo</label>
+                        <input type="text" placeholder="Descrição">
+                    </div>
+                    <div class="form-group">
+                        <label>Peso bruto (kg)</label>
+                        <input type="number" value="0.00">
+                    </div>
                 </div>
             </div>
-            <div class="right">
-                <label>Imagem do tipo de veículo</label>
-                <div class="image-box"></div>
+
+            <!-- Aba Cadastro -->
+            <div class="tab-content" id="content2">
+                <div class="left">
+                    <div class="form-group">
+                        <label>Código do item</label>
+                        <input type="text" placeholder="Código">
+                    </div>
+                    <div class="form-group">
+                        <label>Descrição</label>
+                        <input type="text" placeholder="Descrição do item">
+                    </div>
+                </div>
             </div>
+
+            <!-- Aba Motorista -->
+            <div class="tab-content" id="content3">
+                <div class="left">
+                    <div class="form-group">
+                        <label>País de origem</label>
+                        <input type="text" placeholder="País">
+                    </div>
+                    <div class="form-group">
+                        <label>Documento do motorista</label>
+                        <input type="text" placeholder="CPF ou documento">
+                    </div>
+                    <div class="form-group">
+                        <label>Nome do motorista</label>
+                        <input type="text" placeholder="Nome completo">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Campos adicionais -->
+            <div class="tab-content" id="content4">
+                <div class="left">
+                    <div class="form-group">
+                        <label>Observação adicional</label>
+                        <textarea rows="5" placeholder="Digite observações aqui..." style="width:100%"></textarea>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Rodapé -->
         <footer>
-            <div class="status-info">
-                Operação realizada com sucesso | Nº 0001784 | 13/05/2025 21:58:14 | Operador: adutra
-            </div>
-            <div class="footer-right">
-                <div>22ºC - Pred ensolarado</div>
-                <button>Sair</button>
-            </div>
+            <!-- Rodapé sem o botão Sair -->
         </footer>
 
     </div>
+
+    <!-- Botão SAIR fixo na tela -->
+    <button class="btn-sair-fixo">Sair</button>
+
 </body>
 </html>
