@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 95%;
+    margin: 10px auto;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+header {
+    background-color: #004a99;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.main-panel {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.peso-section {
+    flex: 1;
+}
+
+.peso-display {
+    background-color: #004a99;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.peso-display .codigo {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.peso-display .peso {
+    font-size: 50px;
+}
+
+.peso-display .kg {
+    font-size: 25px;
+}
+
+.peso-display .status {
+    margin-top: 5px;
+    background-color: #033f7d;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.form-section {
+    flex: 2;
+    padding: 0 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 5px;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.buttons button {
+    padding: 6px 12px;
+    margin-right: 10px;
+}
+
+.confirmar {
+    background-color: #007a33;
+    color: white;
+    border: none;
+}
+
+.cancelar {
+    background-color: #a60000;
+    color: white;
+    border: none;
+}
+
+.logo {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    padding: 20px;
+    flex: 1;
+}
+
+.tabs {
+    display: flex;
+    background-color: #e6e6e6;
+    padding: 5px;
+}
+
+.tabs button {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.tab-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.tab-content .left {
+    flex: 2;
+}
+
+.tab-content .right {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.image-box {
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    height: 150px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e6e6e6;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer button {
+    background-color: #a60000;
+    color: white;
+    border: none;
+    padding: 3px 8px;
+}
