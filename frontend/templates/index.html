@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Pesagem</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-
         <header>
             <h1>Identifique o veículo</h1>
         </header>
@@ -24,25 +23,25 @@
             </div>
 
             <!-- Formulário -->
-            <div class="form-section">
+            <form method="POST" class="form-section">
                 <div class="form-group">
                     <label>Placa da carreta/vagão</label>
-                    <input type="text">
+                    <input type="text" name="placa_carreta">
                 </div>
                 <div class="form-group">
                     <label>Placa do veículo</label>
-                    <input type="text">
+                    <input type="text" name="placa_veiculo">
                 </div>
                 <div class="form-group">
                     <label>Identificação</label>
-                    <input type="text">
+                    <input type="text" name="identificacao">
                 </div>
 
                 <div class="buttons">
-                    <button class="confirmar">✔ Confirmar</button>
-                    <button class="cancelar">✘ Cancelar</button>
+                    <button type="submit" class="confirmar">✔ Confirmar</button>
+                    <button type="reset" class="cancelar">✘ Cancelar</button>
                 </div>
-            </div>
+            </form>
 
             <div class="logo">
                 Sistema de Pesagem
@@ -62,10 +61,7 @@
             <label for="tab4">Campos adicionais [F4]</label>
         </nav>
 
-        <!-- Conteúdo das abas -->
         <div class="content">
-
-            <!-- Aba Tipo Veículo -->
             <div class="tab-content" id="content1">
                 <div class="left">
                     <div class="form-group">
@@ -83,7 +79,6 @@
                 </div>
             </div>
 
-            <!-- Aba Cadastro -->
             <div class="tab-content" id="content2">
                 <div class="left">
                     <div class="form-group">
@@ -97,7 +92,6 @@
                 </div>
             </div>
 
-            <!-- Aba Motorista -->
             <div class="tab-content" id="content3">
                 <div class="left">
                     <div class="form-group">
@@ -115,7 +109,6 @@
                 </div>
             </div>
 
-            <!-- Aba Campos adicionais -->
             <div class="tab-content" id="content4">
                 <div class="left">
                     <div class="form-group">
@@ -124,17 +117,11 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <footer>
-            <!-- Rodapé sem o botão Sair -->
-        </footer>
-
+        <footer></footer>
     </div>
 
-    <!-- Botão SAIR fixo na tela -->
     <button class="btn-sair-fixo">Sair</button>
-
 </body>
 </html>
