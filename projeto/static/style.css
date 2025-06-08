@@ -221,9 +221,8 @@ footer button:hover {
 
 .btn-sair-fixo {
     position: fixed;
-    right: 90%;
-    top: 60%;
-    transform: translateX(-50%);
+    bottom: 20px;
+    right: 20px;
     background-color: #a60000;
     color: white;
     border: none;

@@ -21,20 +21,94 @@
                     <div class="status">Aguardando Pesagem</div>
                 </div>
             </div>
-
+            
             <!-- Formulário -->
             <form method="POST" class="form-section">
+                {% if erro %}
+                <div style="color: red; margin-bottom: 10px;">{{ erro }}</div>
+                {% endif %}
                 <div class="form-group">
                     <label>Placa da carreta/vagão</label>
-                    <input type="text" name="placa_carreta">
+                    <input type="text" name="placa_carreta" required>
                 </div>
                 <div class="form-group">
                     <label>Placa do veículo</label>
-                    <input type="text" name="placa_veiculo">
+                    <input type="text" name="placa_veiculo" required>
                 </div>
                 <div class="form-group">
                     <label>Identificação</label>
-                    <input type="text" name="identificacao">
+                    <input type="text" name="identificacao" required>
+                </div>
+
+                <!-- Abas -->
+                <input type="radio" name="tab" id="tab1" checked>
+                <input type="radio" name="tab" id="tab2">
+                <input type="radio" name="tab" id="tab3">
+                <input type="radio" name="tab" id="tab4">
+
+                <nav class="tabs">
+                    <label for="tab1">Tipo veículo [F1]</label>
+                    <label for="tab2">Cadastros [F2]</label>
+                    <label for="tab3">Motorista [F3]</label>
+                    <label for="tab4">Campos adicionais [F4]</label>
+                </nav>
+
+                <div class="content">
+                    <div class="tab-content" id="content1">
+                        <div class="left">
+                            <div class="form-group">
+                                <label>Tipo veículo</label>
+                                <input type="text" name="tipo_veiculo" placeholder="Tipo do veículo" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Descrição do tipo de veículo</label>
+                                <input type="text" name="desc_tipo_veiculo" placeholder="Descrição" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Peso bruto (kg)</label>
+                                <input type="number" name="peso_bruto" value="0.00" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="content2">
+                        <div class="left">
+                            <div class="form-group">
+                                <label>Código do item</label>
+                                <input type="text" name="codigo_item" placeholder="Código" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Descrição</label>
+                                <input type="text" name="desc_tipo_item" placeholder="Descrição do item" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="content3">
+                        <div class="left">
+                            <div class="form-group">
+                                <label>País de origem</label>
+                                <input type="text" name="pais_origem" placeholder="País" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Documento do motorista</label>
+                                <input type="text" name="doc_motorista" placeholder="CPF ou documento" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Nome do motorista</label>
+                                <input type="text" name="nome_motorista" placeholder="Nome completo" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="content4">
+                        <div class="left">
+                            <div class="form-group">
+                                <label>Observação adicional</label>
+                                <textarea name="campos_adicionais" rows="5" placeholder="Digite observações aqui..." style="width:100%" required></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="buttons">
@@ -45,77 +119,6 @@
 
             <div class="logo">
                 Sistema de Pesagem
-            </div>
-        </div>
-
-        <!-- Abas -->
-        <input type="radio" name="tab" id="tab1" checked>
-        <input type="radio" name="tab" id="tab2">
-        <input type="radio" name="tab" id="tab3">
-        <input type="radio" name="tab" id="tab4">
-
-        <nav class="tabs">
-            <label for="tab1">Tipo veículo [F1]</label>
-            <label for="tab2">Cadastros [F2]</label>
-            <label for="tab3">Motorista [F3]</label>
-            <label for="tab4">Campos adicionais [F4]</label>
-        </nav>
-
-        <div class="content">
-            <div class="tab-content" id="content1">
-                <div class="left">
-                    <div class="form-group">
-                        <label>Tipo veículo</label>
-                        <input type="text" placeholder="Tipo do veículo">
-                    </div>
-                    <div class="form-group">
-                        <label>Descrição do tipo de veículo</label>
-                        <input type="text" placeholder="Descrição">
-                    </div>
-                    <div class="form-group">
-                        <label>Peso bruto (kg)</label>
-                        <input type="number" value="0.00">
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="content2">
-                <div class="left">
-                    <div class="form-group">
-                        <label>Código do item</label>
-                        <input type="text" placeholder="Código">
-                    </div>
-                    <div class="form-group">
-                        <label>Descrição</label>
-                        <input type="text" placeholder="Descrição do item">
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="content3">
-                <div class="left">
-                    <div class="form-group">
-                        <label>País de origem</label>
-                        <input type="text" placeholder="País">
-                    </div>
-                    <div class="form-group">
-                        <label>Documento do motorista</label>
-                        <input type="text" placeholder="CPF ou documento">
-                    </div>
-                    <div class="form-group">
-                        <label>Nome do motorista</label>
-                        <input type="text" placeholder="Nome completo">
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="content4">
-                <div class="left">
-                    <div class="form-group">
-                        <label>Observação adicional</label>
-                        <textarea rows="5" placeholder="Digite observações aqui..." style="width:100%"></textarea>
-                    </div>
-                </div>
             </div>
         </div>
 
