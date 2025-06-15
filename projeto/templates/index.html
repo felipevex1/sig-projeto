@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Pesagem</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <div class="container">
-        <header>
+        <header style="position: relative">
+            <div id="relogio" style="position: absolute; left: 10px; top: 10px; color: white;"></div>
             <h1>Identifique o veículo</h1>
         </header>
 
@@ -19,10 +22,24 @@
                         <span>0</span> <span class="kg">kg</span>
                     </div>
                     <div class="status">Aguardando Pesagem</div>
-                </div>
+                </div><br><br>
+
+                <!-- Formulário único de consulta estilizada -->
+                <form method="POST" action="/consulta" target="_blank">
+                    <h2>Gerar Consulta Por Data</h2>
+                    <input type="datetime-local" name="data_ini" required>
+                    <input type="datetime-local" name="data_fim" required>
+                    <input type="submit" value="Gerar Relatório">
+                </form>
+
+                <!-- Novo botão para exportar para Excel -->
+                <form action="/exportar" method="GET" target="_blank" style="margin-top: 10px;">
+                    <input type="submit" value="Exportar para Excel">
+                </form>
+
             </div>
-            
-            <!-- Formulário -->
+
+            <!-- Formulário principal -->
             <form method="POST" class="form-section">
                 {% if erro %}
                 <div style="color: red; margin-bottom: 10px;">{{ erro }}</div>
@@ -40,17 +57,16 @@
                     <input type="text" name="identificacao" required>
                 </div>
 
-                <!-- Abas -->
                 <input type="radio" name="tab" id="tab1" checked>
                 <input type="radio" name="tab" id="tab2">
                 <input type="radio" name="tab" id="tab3">
                 <input type="radio" name="tab" id="tab4">
 
                 <nav class="tabs">
-                    <label for="tab1">Tipo veículo [F1]</label>
-                    <label for="tab2">Cadastros [F2]</label>
-                    <label for="tab3">Motorista [F3]</label>
-                    <label for="tab4">Campos adicionais [F4]</label>
+                    <label for="tab1">Tipo veículo</label>
+                    <label for="tab2">Fluído</label>
+                    <label for="tab3">Cadastro do Motorista</label>
+                    <label for="tab4">Observação</label>
                 </nav>
 
                 <div class="content">
@@ -58,15 +74,15 @@
                         <div class="left">
                             <div class="form-group">
                                 <label>Tipo veículo</label>
-                                <input type="text" name="tipo_veiculo" placeholder="Tipo do veículo" required>
+                                <input type="text" name="tipo_veiculo" required>
                             </div>
                             <div class="form-group">
                                 <label>Descrição do tipo de veículo</label>
-                                <input type="text" name="desc_tipo_veiculo" placeholder="Descrição" required>
+                                <input type="text" name="desc_tipo_veiculo" required>
                             </div>
                             <div class="form-group">
                                 <label>Peso bruto (kg)</label>
-                                <input type="number" name="peso_bruto" value="0.00" required>
+                                <input type="number" name="peso_bruto" required>
                             </div>
                         </div>
                     </div>
@@ -74,12 +90,12 @@
                     <div class="tab-content" id="content2">
                         <div class="left">
                             <div class="form-group">
-                                <label>Código do item</label>
-                                <input type="text" name="codigo_item" placeholder="Código" required>
+                                <label>Código Fluído</label>
+                                <input type="number" name="codigo_item" required>
                             </div>
                             <div class="form-group">
                                 <label>Descrição</label>
-                                <input type="text" name="desc_tipo_item" placeholder="Descrição do item" required>
+                                <input type="text" name="desc_tipo_item" required>
                             </div>
                         </div>
                     </div>
@@ -88,15 +104,15 @@
                         <div class="left">
                             <div class="form-group">
                                 <label>País de origem</label>
-                                <input type="text" name="pais_origem" placeholder="País" required>
+                                <input type="text" name="pais_origem" required>
                             </div>
                             <div class="form-group">
                                 <label>Documento do motorista</label>
-                                <input type="text" name="doc_motorista" placeholder="CPF ou documento" required>
+                                <input type="text" name="doc_motorista" required>
                             </div>
                             <div class="form-group">
                                 <label>Nome do motorista</label>
-                                <input type="text" name="nome_motorista" placeholder="Nome completo" required>
+                                <input type="text" name="nome_motorista" required>
                             </div>
                         </div>
                     </div>
@@ -105,7 +121,7 @@
                         <div class="left">
                             <div class="form-group">
                                 <label>Observação adicional</label>
-                                <textarea name="campos_adicionais" rows="5" placeholder="Digite observações aqui..." style="width:100%" required></textarea>
+                                <textarea name="campos_adicionais" rows="5" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -125,6 +141,15 @@
         <footer></footer>
     </div>
 
-    <button class="btn-sair-fixo">Sair</button>
+    <script>
+        function atualizarRelogio() {
+            const agora = new Date();
+            const hora = agora.toLocaleTimeString();
+            document.getElementById("relogio").innerText = hora;
+        }
+        setInterval(atualizarRelogio, 1000);
+        atualizarRelogio();
+    </script>
 </body>
+
 </html>
